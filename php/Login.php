@@ -24,7 +24,7 @@ $usuarios = mysqli_query( $mysql,"select * from usuarios where Email ='$username
 $cont= mysqli_num_rows($usuarios); //Se verifica el total de filas devueltas
 mysqli_close( $mysql); //cierra la conexion
 if($cont==1){echo("<script>window.location.href='Layout.php?email=$username</script>");
-echo "<script> window.location.replace('https://marcositurbe.000webhostapp.com/lab4/php/Layout.php?email=$username')</script>";
+echo "<script> window.location.replace('https://marcositurbe.000webhostapp.com/SW20G11/php/Layout.php?email=$username')</script>";
 echo ("Login correcto<p>Puede insertar preguntas</a>");} else {echo
 ("Par&aacute;metros de login incorrectos ");}
 }

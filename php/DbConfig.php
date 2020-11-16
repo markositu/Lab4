@@ -8,8 +8,8 @@ if ($local==1){
 }
 else{
     $server="localhost";
-    $user="marcos";
-    $pass=")GZ+{&Nq+l{9Y1w]";
-    $basededatos="quiz";
+    $user="id14898638_marcos";
+    $pass="*********";
+    $basededatos="id14898638_quiz";
 }
 ?>
