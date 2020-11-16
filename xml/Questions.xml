@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItems>
+	<assessmentItem subject="Web" author="jvadillo001@ikasle.ehu.eus">
+		<itemBody>
+			<p>Tag HTML para añadir un formulario</p>
+		</itemBody>
+		<correctResponse>
+			<response>
+				FORM
+			</response>
+		</correctResponse>
+		<incorrectResponses>
+			<response> OBJECT </response>
+			<response> TABLE </response>
+			<response> DIV </response>
+		</incorrectResponses>
+	</assessmentItem>
+		<assessmentItem subject="Internet" author="rarruabarrena001@ikasle.ehu.eus">
+		<itemBody>
+			<p>Este protocolo acabará funcionando
+			incluso entre dos latas unidas por un cordón</p>
+		</itemBody>
+		<correctResponse>
+			<response>
+				TCP/IP
+			</response>
+		</correctResponse>
+		<incorrectResponses>
+			<response> HTTP </response>
+			<response> SMTP </response>
+			<response> Ninguna es correcta </response>
+		</incorrectResponses>
+	</assessmentItem>
+<assessmentItem author="miturbe021@ikasle.ehu.eus" subject="j"><correctResponse><response>h</response></correctResponse><incorrectResponses><response>j</response><response>j</response><response>d</response></incorrectResponses><itemBody><p>lkhd</p></itemBody></assessmentItem><assessmentItem author="pepe@ehu.es" subject="aaadas"><correctResponse><response>asdasdas</response></correctResponse><incorrectResponses><response>dsadas</response><response>dasd</response><response>asdsa</response></incorrectResponses><itemBody><p>dasdasdsasdasdasdsad</p></itemBody></assessmentItem><assessmentItem author="miturbe021@ikasle.ehu.eus" subject="d"><correctResponse><response>dw</response></correctResponse><incorrectResponses><response>d</response><response>d</response><response>d</response></incorrectResponses><itemBody><p>fsd</p></itemBody></assessmentItem></assessmentItems>
