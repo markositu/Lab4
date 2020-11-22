@@ -2,7 +2,10 @@
 <html>
 <head>
   <?php include '../html/Head.html'?>
+
 </head>
+<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<script src="../js/VerifyEmailAjax.js"></script>
 <body>
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
@@ -13,12 +16,14 @@
 			    <option id="profesor" value=1>profesor</option>
 			    <option id="alumno" value=2>alumno</option>
 			</select><br>
-		    Email: <input type="text" id="email" name="email"><br>
+		    Email: <input type="text" id="email" name="email" onchange="verificarEmail()"><br>
+		    <p id="resultuadoVerificacion" name="resultuadoVerificacion"> </p>
 		    Nombre y Apellidos : <input type="text" id="nombre" name="nombre"><br>
-		    Contraseña <input type="password" id="contraseña"name ="contraseña"><br>
+		    Contraseña <input type="password" id="password"name ="password" onchange="verificarContrasena()"><br>
+		    <p id="resultuadoVerificacion2" name="resultuadoVerificacion2"> </p>
 		    Repetir Contraseña <input type="password" id="contraseña2"name ="contraseña2"><br>
 		   
-		    <input type="submit" value="Enviar">
+		    <input id="registrar" name="registrar" type="submit" value="Enviar">
 		    
 		</form>
 		<?php
