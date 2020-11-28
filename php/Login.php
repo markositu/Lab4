@@ -20,12 +20,24 @@ include "DbConfig.php";
 $mysql= mysqli_connect($server,$user,$pass,$basededatos) or die(mysqli_connect_error());
 $username=$_POST['email'];
 $pass=$_POST['pass'];
-$usuarios = mysqli_query( $mysql,"select * from usuarios where Email ='$username' and Password ='$pass'");
+$usuarios = mysqli_query( $mysql,"select * from usuarios where Email ='$username' and Password ='$pass' and Estado=0");
 $cont= mysqli_num_rows($usuarios); //Se verifica el total de filas devueltas
 mysqli_close( $mysql); //cierra la conexion
-if($cont==1){echo("<script>window.location.href='Layout.php?email=$username</script>");
-echo "<script> window.location.replace('https://marcositurbe.000webhostapp.com/SW20G11/php/Layout.php?email=$username')</script>";
-echo ("Login correcto<p>Puede insertar preguntas</a>");} else {echo
+if($cont==1){
+ini_set('session.cookie_lifetime','900');
+session_start();
+if($username=="admin@ehu.es"){
+	$_SESSION["admin"]="SI";
+	}
+else{$_SESSION["admin"]="NO";}
+$_SESSION["email"]= $username;
+echo("<script>window.location.href='Layout.php?email=$username</script>");
+echo "<script> window.location.replace('https://localhost/lab3/php/Layout.php?email=$username')</script>";
+echo ("Login correcto<p>Puede insertar preguntas</a>");
+
+
+
+} else {echo
 ("Par&aacute;metros de login incorrectos ");}
 }
 ?>

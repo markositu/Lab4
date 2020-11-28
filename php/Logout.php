@@ -10,6 +10,10 @@
 
       <script >alert("Adios, Vuelve pronto!");
   window.location.href='Layout.php';</script>
+  <?php 
+  session_start();
+  session_destroy();
+  ?>
       
     </div>
   </section>

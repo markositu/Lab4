@@ -1,3 +1,21 @@
+<?php
+if(!isset($_SESSION))      {          session_start();      }
+if (!isset($_SESSION["email"]))
+{
+    echo"<script> alert('Debes estar logueado para estar aquí');</script>";
+         echo "<script> window.location.replace('Layout.php');</script>";
+        exit();
+}
+else
+{
+    if ($_SESSION["admin"]!="NO")
+    {
+        echo"<script> alert('Debes ser usuario para estar aquí');</script>";
+         echo "<script> window.location.replace('Layout.php');</script>";
+        exit();
+    }
+  }
+  ?>
 <!DOCTYPE html>
 <html>
 <head>

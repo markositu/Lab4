@@ -6,7 +6,7 @@ require_once('../lib/class.wsdlcache.php');
 //http://www.mydomain.com/server.php se refiere a la url
 //donde se encuentra el servicio SOAP que vamos a utilizar.
 
-$soapclient = new nusoap_client( 'http://localhost/lab3/php/VerificarContrasenaWSDL.php?wsdl',true);
+$soapclient = new nusoap_client( 'https://marcositurbe.000webhostapp.com/SW20G11/php/VerificarContrasenaWSDL.php?wsdl',true);
 //Llamamos la función que habíamos implementado en el Web Service
 //e imprimimos lo que nos devuelve
 

@@ -32,7 +32,7 @@ if (isset($_POST['email'])){
 include "DbConfig.php";
 $mysql= mysqli_connect($server,$user,$pass,$basededatos) or die(mysqli_connect_error());
 $username=$_POST['email'];
-$pass=$_POST['contraseña'];
+$pass=$_POST['password'];
 $pass2=$_POST['contraseña2'];
 $tipo=$_POST['tipo'];
 $nombre=$_POST['nombre'];
@@ -48,6 +48,7 @@ if(strlen($pass)<6){
 mysqli_query( $mysql,"INSERT INTO usuarios (TipoUsuario,Email,NombreApellidos,Password) VALUES ('$tipo','$username','$nombre','$pass')");
 
 mysqli_close( $mysql); //cierra la conexion
+echo "<h2>El usuario ".$username." se ha registrado con éxito.</h2>";
 }
 ?>
     </div>
