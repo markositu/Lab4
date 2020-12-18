@@ -31,11 +31,16 @@ else
     	<script src="../js/jquery-3.4.1.min.js"></script>
 		<script src="../js/ShowQuestionsAjax.js"></script>
 		<script src="../js/AddQuestionsAjax.js"></script>
-   		
+		<script src="../js/ContarPreguntas.js"></script>
+		<script>
+			contarpreguntas('<?php echo $_SESSION['email']; ?>');
+		setInterval(function(){contarpreguntas('<?php echo $_SESSION['email']; ?>');},5000);
+   		</script>
+   		Contador:<div id="contador" ></div>
    		
    		
 		<form name='fquestion' id="fquestion" action="AddQuestion.php?email=usuario" method="post" >
-		    Email: <input type="text" id="email" name="email"><br>
+		    Email: <input type="text" id="email" name="email" value=<?php echo $_SESSION['email'];?> readonly><br>
 		    Pregunta: <input type="text" id="pregunta" name="pregunta"><br>
 		    Opción Correcta: <input type="text" id="opcioncorrecta" name="opcioncorrecta"><br>
 		    Opción Incorrecta 1: <input type="text" id="opcionincorrecta1"name ="opcionincorrecta1"><br>

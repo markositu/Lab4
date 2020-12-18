@@ -19,7 +19,7 @@ else
 $email=$_SESSION['email'];
 include "DbConfig.php";
 $mysql = mysqli_connect($server,$user,$pass,$basededatos) or die("Error de conexión a la BD");
-$query="DELETE FROM Usuarios WHERE Email='" . $_GET['email']."'";
+$query="DELETE FROM usuarios WHERE Email='" . $_GET['email']."'";
 
 mysqli_query($mysql,$query);
 echo "<script>alert ('usuario borrado')</script>";

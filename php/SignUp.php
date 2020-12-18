@@ -10,7 +10,7 @@
   <?php include '../php/Menus.php' ?>
   <section class="main" id="s1">
     <div>
-		<form name='fquestion' id="fquestion" action="SignUp.php" method="post" >
+		<form name='fquestion' id="fquestion" action="SignUp.php" method="post" enctype='multipart/form-data'>
 			Tipo Usuario:
 		    <select id="tipo" name="tipo">
 			    <option id="profesor" value=1>profesor</option>
@@ -22,6 +22,7 @@
 		    Contraseña <input type="password" id="password"name ="password" onchange="verificarContrasena()"><br>
 		    <p id="resultuadoVerificacion2" name="resultuadoVerificacion2"> </p>
 		    Repetir Contraseña <input type="password" id="contraseña2"name ="contraseña2"><br>
+		    <input type="file" id="foto" name="foto"><br>
 		   
 		    <input id="registrar" name="registrar" type="submit" value="Enviar">
 		    
@@ -31,6 +32,29 @@
 if (isset($_POST['email'])){
 include "DbConfig.php";
 $mysql= mysqli_connect($server,$user,$pass,$basededatos) or die(mysqli_connect_error());
+if ($_FILES["foto"]["name"]!=""){
+		if(getimagesize($_FILES["foto"]["tmp_name"])==false){
+	 		echo "<h2>El archivo debe ser una imagen</h2>";
+			exit;
+	    }
+	    $imagen=mysqli_real_escape_string($mysql,file_get_contents($_FILES["foto"]["tmp_name"]));
+        $imagenTem=$_FILES['foto']['tmp_name'];
+        $imageNombre="../images/".$_FILES['foto']['name'];
+        if (is_uploaded_file($imagenTem))
+            {
+                move_uploaded_file($imagenTem,$imageNombre);
+            }
+
+        else
+            {
+                echo "error";
+            }
+        }
+     else
+        {$imageNombre="../images/noimage.jpg";
+         $imagen=mysqli_real_escape_string($mysql,file_get_contents("../images/noimage.jpg"));
+    }
+
 $username=$_POST['email'];
 $pass=$_POST['password'];
 $pass2=$_POST['contraseña2'];
@@ -45,10 +69,12 @@ if(strlen($pass)<6){
 	exit;
 }
 
-mysqli_query( $mysql,"INSERT INTO usuarios (TipoUsuario,Email,NombreApellidos,Password) VALUES ('$tipo','$username','$nombre','$pass')");
-
+$pass=crypt($_POST['password'],'holiwi');
+mysqli_query( $mysql,"INSERT INTO usuarios (TipoUsuario,Email,NombreApellidos,Password,Foto,Url) VALUES ('$tipo','$username','$nombre','$pass','$imagen','$imageNombre')");
+echo mysqli_error($mysql);
 mysqli_close( $mysql); //cierra la conexion
 echo "<h2>El usuario ".$username." se ha registrado con éxito.</h2>";
+
 }
 ?>
     </div>

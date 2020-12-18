@@ -21,19 +21,20 @@ else
 $email=$_SESSION['email'];
 include "DbConfig.php";
 $mysql = mysqli_connect($server,$user,$pass,$basededatos) or die("Error de conexión a la BD");
-$query1="SELECT Estado from Usuarios where Email='" . $_GET['email']."'";
+$query1="SELECT Estado from usuarios where Email='" . $_GET['email']."'";
+echo"$query1";
 $usuarios=mysqli_query($mysql,$query1);
 $row = mysqli_fetch_array($usuarios);
 if ($row['Estado']==0)
 {
   
-  $query2="UPDATE Usuarios SET Estado=1 WHERE Email='" . $_GET['email']."'";
+  $query2="UPDATE usuarios SET Estado=1 WHERE Email='" . $_GET['email']."'";
   mysqli_query($mysql,$query2);
 }
 else
 {
   
-  $query2="UPDATE Usuarios SET Estado=0 WHERE Email='" . $_GET['email']."'";
+  $query2="UPDATE usuarios SET Estado=0 WHERE Email='" . $_GET['email']."'";
   mysqli_query($mysql,$query2);
 }
 mysqli_close( $mysql);

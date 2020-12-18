@@ -1,3 +1,8 @@
+<?php 
+  session_start();
+  unset($_SESSION['email']);
+  session_destroy();
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +14,8 @@
     <div>
 
       <script >alert("Adios, Vuelve pronto!");
-  window.location.href='Layout.php';</script>
-  <?php 
-  session_start();
-  session_destroy();
-  ?>
+       window.location.href='Layout.php';</script>
+ 
       
     </div>
   </section>

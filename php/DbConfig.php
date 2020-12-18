@@ -1,15 +1,15 @@
 <?php
-$local=1; //0 para la nube
+$local=0; //0 para la nube
 if ($local==1){
     $server="localhost";
     $user="root";
-    $pass="";
+    $pass="admin";
     $basededatos="quiz";
 }
 else{
     $server="localhost";
     $user="id14898638_marcos";
-    $pass="*******";
+    $pass="******";
     $basededatos="id14898638_quiz";
 }
 ?>
